@@ -60,7 +60,7 @@
           totalComments++;
           // flipper.push(comments[i]);
           let shazam = comments[i].textContent.toLowerCase();
-          console.log(comments[i].textContent);
+          // console.log(comments[i].textContent);
           //console.log(analyze(shazam));
           // comments[i].innerHTML += `<br>AFINN: ${analyze(shazam)}`;
           if(analyze(shazam) <= -3) {
@@ -120,7 +120,7 @@
       }
     }
 
-    //console.log(bannedUsers);
+    console.log(bannedUsers);
 
     sendToBackground(totalComments, removed, bannedUsers, otherPage);
   }
@@ -242,6 +242,92 @@
     sendToBackground(totalComments, removed, bannedUsers, otherPage);
   }
 
+
+
+
+
+
+  else if(currentUrl.match(/facebook/)) {
+
+    console.log("It's facebook");
+    let bannedUsers = [];
+    let removed = 0;
+    let totalComments = 0;
+    let userBan = false;
+    let embedded = "css-1dbjc4n";
+
+    let comments = document.getElementsByClassName("_6cuy");
+
+    for (var i = 0; i < comments.length; i++) {
+      userBan = false;
+      totalComments++;
+      let shazam = comments[i].textContent.toLowerCase();
+
+      // console.log(comments[i].children[0].children[0].children[0].children[1].textContent);
+      // console.log(comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+
+      if(analyze(shazam) <= -3) {
+        removed++;
+        userBan = true;
+        comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+      }
+      else {
+        for(var j = 0; j < profanity.length; j++) {
+          if(shazam.indexOf(profanity[j]) != -1) {
+            removed++;
+            userBan = true;
+            comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            break;
+          }
+        }
+        for(var j = 0; j < racism.length; j++) {
+          if(shazam.indexOf(racism[j]) != -1) {
+            removed++;
+            userBan = true;
+            comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            break;
+          }
+        }
+        for(var j = 0; j < homophobia.length; j++) {
+          if(shazam.indexOf(homophobia[j]) != -1) {
+            removed++;
+            userBan = true;
+            comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            break;
+          }
+        }
+        for(var j = 0; j < sexism.length; j++) {
+          if(shazam.indexOf(sexism[j]) != -1) {
+            removed++;
+            userBan = true;
+            comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            break;
+          }
+
+        }
+        for(var j = 0; j < violence.length; j++) {
+          if(shazam.indexOf(violence[j]) != -1) {
+            removed++;
+            userBan = true;
+            comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            break;
+          }
+        }
+      }
+      if(userBan) {
+        bannedUsers.push(comments[i].children[0].children[0].children[0].children[0].href);
+      }
+    }
+    console.log(bannedUsers);
+
+    sendToBackground(totalComments, removed, bannedUsers, otherPage);
+  }
+
+
+
+
+
+
   else {
     console.log("Not supported");
     otherPage = true;
@@ -281,8 +367,6 @@
   //   .then((data) => {
   //     console.log(data); // JSON data parsed by `response.json()` call
   //   });
-
-
 
 
 

@@ -14,7 +14,7 @@
 
   "description": "Detects youtube comments",
   "icons": {
-    "48": "icons/1024px-Youtube_icon.svg.png"
+    "48": "icons/CollegeAlly.png"
   },
 
   "permissions": [
@@ -24,7 +24,7 @@
   ],
 
   "browser_action": {
-    "default_icon": "icons/1024px-Youtube_icon.svg.png",
+    "default_icon": "icons/CollegeAlly.png",
     "default_title": "Youtube Comments",
     "default_popup": "popup/main.html"
   },
