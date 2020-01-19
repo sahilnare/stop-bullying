@@ -1,4 +1,4 @@
-# cyber-ally-web-extension
+# Cyber Ally Web Extension
 A web extension for preventing cyber bullying
 
 ## For installing the extension:
@@ -7,3 +7,5 @@ A web extension for preventing cyber bullying
 3. Due to a bug, the extension does not work on Chrome. So please, try it on Mozilla Firefox.
 
 The users banned by the extension can be seen here: https://cyber-ally.herokuapp.com/users
+
+nlp_test.py contains the sentiment analysis implementation using machine learning.
