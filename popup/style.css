@@ -1,0 +1,41 @@
+html, body {
+  width: 400px;
+}
+
+.hidden {
+  display: none;
+}
+
+.header {
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 30px;
+  margin: 4px auto;
+  text-align: center;
+}
+
+.stats {
+  margin-top: 70px;
+  min-height: 100px;
+}
+
+#press {
+  display: block;
+  margin: 3px auto;
+  padding: 4px;
+  text-align: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  background-color: #E5F2F2;
+  border: none;
+}
+
+#press:hover {
+  background-color: #CFF2F2;
+}
+
+.btn {
+  margin: 3px auto 30px auto;
+}

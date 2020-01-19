@@ -1,0 +1,41 @@
+{
+
+  "manifest_version": 2,
+  "name": "Youtube Comments",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": ["content-scripts/scan.js"]
+    }
+  ],
+
+  "description": "Detects youtube comments",
+  "icons": {
+    "48": "icons/1024px-Youtube_icon.svg.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "webRequest",
+    "*://www.youtube.com/*"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/1024px-Youtube_icon.svg.png",
+    "default_title": "Youtube Comments",
+    "default_popup": "popup/main.html"
+  },
+
+  "background": {
+    "scripts": ["popup/background.js"]
+  },
+
+  "web_accessible_resources": [
+    "assests/github1600.png",
+    "content-scripts/AFINN.json"
+  ]
+
+}
