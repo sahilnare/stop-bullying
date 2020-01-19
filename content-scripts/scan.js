@@ -66,16 +66,18 @@
           if(analyze(shazam) <= -3) {
             removed++;
             userBan = true;
-            comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            // comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+            comments[i].innerHTML = "This comment contains innappropriate content.";
+            comments[i].style = "color: #CE0D00; font-weight: bold;";
           }
           else {
             for(var j = 0; j < profanity.length; j++) {
               if(shazam.indexOf(profanity[j]) != -1) {
-                // comments[i].innerHTML = "This comment contains profanity.";
-                // comments[i].style = "color: #CE0D00; font-weight: bold;";
+                comments[i].innerHTML = "This comment contains innappropriate content.";
+                comments[i].style = "color: #CE0D00; font-weight: bold;";
                 removed++;
                 userBan = true;
-                comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+                // comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
                 break;
               }
             }
@@ -83,7 +85,9 @@
               if(shazam.indexOf(racism[j]) != -1) {
                 removed++;
                 userBan = true;
-                comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+                comments[i].innerHTML = "This comment contains innappropriate content.";
+                comments[i].style = "color: #CE0D00; font-weight: bold;";
+                // comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
                 break;
               }
             }
@@ -91,7 +95,9 @@
               if(shazam.indexOf(homophobia[j]) != -1) {
                 removed++;
                 userBan = true;
-                comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+                comments[i].innerHTML = "This comment contains innappropriate content.";
+                comments[i].style = "color: #CE0D00; font-weight: bold;";
+                // comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
                 break;
               }
             }
@@ -99,7 +105,9 @@
               if(shazam.indexOf(sexism[j]) != -1) {
                 removed++;
                 userBan = true;
-                comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+                comments[i].innerHTML = "This comment contains innappropriate content.";
+                comments[i].style = "color: #CE0D00; font-weight: bold;";
+                // comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
                 break;
               }
 
@@ -108,7 +116,9 @@
               if(shazam.indexOf(violence[j]) != -1) {
                 removed++;
                 userBan = true;
-                comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
+                comments[i].innerHTML = "This comment contains innappropriate content.";
+                comments[i].style = "color: #CE0D00; font-weight: bold;";
+                // comments[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style = "display: none;";
                 break;
               }
             }
@@ -254,7 +264,6 @@
     let removed = 0;
     let totalComments = 0;
     let userBan = false;
-    let embedded = "css-1dbjc4n";
 
     let comments = document.getElementsByClassName("_6cuy");
 
@@ -322,7 +331,6 @@
 
     sendToBackground(totalComments, removed, bannedUsers, otherPage);
   }
-
 
 
 
